@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
+/*import 'package:flutter/cupertino.dart';*/
 import 'package:flutter/material.dart';
 import 'package:object_detection/tflite/recognition.dart';
 import 'package:object_detection/tflite/stats.dart';
 import 'package:object_detection/ui/box_widget.dart';
 import 'package:object_detection/ui/camera_view_singleton.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import 'camera_view.dart';
 
@@ -106,6 +107,25 @@ class _HomeViewState extends State<HomeView> {
   Widget boundingBoxes(List<Recognition> results) {
     if (results == null) {
       return Container();
+    }
+    print(results.length);
+    TextToSpeech tts= TextToSpeech();
+    if(results.length>0){
+    var l=results.length;
+    print(results);
+    tts.speak(results.elementAt(0).label);
+      Future.delayed(Duration(seconds: 25), (){
+          print("Executed after 5 seconds");
+      });
+     
+   // for (var i=0;i<l;i++){
+    //  print(results.elementAt(i).label);
+     // tts.speak(results.elementAt(i).label);
+     // Future.delayed(Duration(seconds: 50), (){
+       //   print("Executed after 5 seconds");
+     // });
+    }
+    
     }
     return Stack(
       children: results

@@ -35,6 +35,8 @@ class Recognition {
   ///
   /// This is the actual location where rectangle is rendered on
   /// the screen
+  /// 
+
   Rect get renderLocation {
     // ratioX = screenWidth / imageInputWidth
     // ratioY = ratioX if image fits screenWidth with aspectRatio = constant

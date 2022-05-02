@@ -1,5 +1,5 @@
 /// Bundles different elapsed times
-class Stats {
+class Stats {  
   /// Total time taken in the isolate where the inference runs
   int totalPredictTime;
 
